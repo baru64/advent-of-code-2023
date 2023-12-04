@@ -9,15 +9,15 @@ import (
 )
 
 type Number struct {
-	lid int
-	rid int
+	lid   int
+	rid   int
 	value int
 }
 
 type Gear struct {
-	id int
+	id      int
 	numbers []Number
-	ratio int
+	ratio   int
 }
 
 func isDigit(c byte) bool {
@@ -30,7 +30,7 @@ func isDigit(c byte) bool {
 func parseNumber(s string, i int) Number {
 	number := Number{}
 	min := 0
-	max := len(s)-1
+	max := len(s) - 1
 	// find left
 	number.lid = i
 	for (number.lid-1 >= min) && isDigit(s[number.lid-1]) {
@@ -41,7 +41,7 @@ func parseNumber(s string, i int) Number {
 	for (number.rid+1 <= max) && isDigit(s[number.rid+1]) {
 		number.rid++
 	}
-	v, err := strconv.Atoi(s[number.lid:number.rid+1])
+	v, err := strconv.Atoi(s[number.lid : number.rid+1])
 	if err != nil {
 		panic(err)
 	}
@@ -50,7 +50,7 @@ func parseNumber(s string, i int) Number {
 }
 
 func (n Number) isOverlapping(o Number) bool {
-	if (n.lid >= o.lid && n.lid <= o.rid) || ( n.rid >= o.lid && n.rid <= o.rid	) {
+	if (n.lid >= o.lid && n.lid <= o.rid) || (n.rid >= o.lid && n.rid <= o.rid) {
 		return true
 	}
 	return false
@@ -67,15 +67,15 @@ func (n Number) isOverlappingList(list []Number) bool {
 
 func NewGear(s string, i int, lineLen int) Gear {
 	gear := Gear{
-		id: i,
-		ratio: 0,
+		id:      i,
+		ratio:   0,
 		numbers: make([]Number, 0, 6),
 	}
 	// find numbers
 	indices := [8]int{
-		i-1-lineLen,i-lineLen,i+1-lineLen,
-		i-1, i+1,
-		i-1+lineLen,i+lineLen,i+1+lineLen,
+		i - 1 - lineLen, i - lineLen, i + 1 - lineLen,
+		i - 1, i + 1,
+		i - 1 + lineLen, i + lineLen, i + 1 + lineLen,
 	}
 	for _, j := range indices {
 		if j > 0 && j < len(s) && isDigit(s[j]) {

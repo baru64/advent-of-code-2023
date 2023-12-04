@@ -8,7 +8,7 @@ import (
 )
 
 func findFirstDigit(s string) byte {
-	for k := 0; k < len(s); k++  {
+	for k := 0; k < len(s); k++ {
 		c := s[k]
 		if i := c - '0'; i >= 0 && i <= 9 {
 			return c
@@ -18,7 +18,7 @@ func findFirstDigit(s string) byte {
 }
 
 func findLastDigit(s string) byte {
-	for k := len(s) - 1; k >= 0; k--  {
+	for k := len(s) - 1; k >= 0; k-- {
 		c := s[k]
 		if i := int(c) - '0'; i >= 0 && i <= 9 {
 			return c

@@ -18,38 +18,38 @@ func containsSymbol(s string) bool {
 }
 
 func isPart(schematic string, part []byte, i int, lineLen int) bool {
-			// line before
-			if i > lineLen+len(part)+1 {
-				//fmt.Printf("[%d:%d]\n", i-lineLen-len(part)-1,i-lineLen+1)
-				s := schematic[i-lineLen-len(part)-1:i-lineLen+1]
-				if containsSymbol(s) {
-					return true
-				}
-			}
-			// next line
-			if i+lineLen+1 <= len(schematic) {
-				//fmt.Printf("[%d:%d]\n", i+lineLen-len(part)-1, i+lineLen+1)
-				s := schematic[i+lineLen-len(part)-1:i+lineLen+1]
-				if containsSymbol(s) {
-					return true
-				}
-			}
-			// character before
-			if i-len(part) > 0 {
-				//fmt.Printf("[%d:%d]\n", i-lineLen-len(part)-1,i-lineLen+1)
-				s := schematic[i-len(part)-1:i-len(part)]
-				if containsSymbol(s) {
-					return true
-				}
-			}
-			// character after
-			if i < len(schematic)-1 {
-				//fmt.Printf("[%d:%d]\n", i-lineLen-len(part)-1,i-lineLen+1)
-				s := schematic[i:i+1]
-				if containsSymbol(s) {
-					return true
-				}
-			}
+	// line before
+	if i > lineLen+len(part)+1 {
+		//fmt.Printf("[%d:%d]\n", i-lineLen-len(part)-1,i-lineLen+1)
+		s := schematic[i-lineLen-len(part)-1 : i-lineLen+1]
+		if containsSymbol(s) {
+			return true
+		}
+	}
+	// next line
+	if i+lineLen+1 <= len(schematic) {
+		//fmt.Printf("[%d:%d]\n", i+lineLen-len(part)-1, i+lineLen+1)
+		s := schematic[i+lineLen-len(part)-1 : i+lineLen+1]
+		if containsSymbol(s) {
+			return true
+		}
+	}
+	// character before
+	if i-len(part) > 0 {
+		//fmt.Printf("[%d:%d]\n", i-lineLen-len(part)-1,i-lineLen+1)
+		s := schematic[i-len(part)-1 : i-len(part)]
+		if containsSymbol(s) {
+			return true
+		}
+	}
+	// character after
+	if i < len(schematic)-1 {
+		//fmt.Printf("[%d:%d]\n", i-lineLen-len(part)-1,i-lineLen+1)
+		s := schematic[i : i+1]
+		if containsSymbol(s) {
+			return true
+		}
+	}
 	return false
 }
 

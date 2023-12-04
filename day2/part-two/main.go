@@ -9,26 +9,26 @@ import (
 )
 
 type Set struct {
-	red int
+	red   int
 	green int
-	blue int
+	blue  int
 }
 
 type Game struct {
-	id int
+	id   int
 	sets []Set
 }
 
 func parseSet(s string) Set {
 	cubes := strings.Split(s, ",")
 	set := Set{
-		red: 0,
+		red:   0,
 		green: 0,
-		blue: 0,
+		blue:  0,
 	}
 	for _, cube := range cubes {
 		splitted := strings.Split(strings.TrimSpace(cube), " ")
-		count,err := strconv.Atoi(splitted[0])
+		count, err := strconv.Atoi(splitted[0])
 		if err != nil {
 			panic(err)
 		}
@@ -50,7 +50,7 @@ func (s Set) getPower() int {
 
 func NewGame(s string) Game {
 	game := Game{
-		id: 0,
+		id:   0,
 		sets: make([]Set, 0, 5),
 	}
 	gameSplit := strings.Split(s, ":")
@@ -78,9 +78,9 @@ func (g Game) isPossible(bag Set) bool {
 
 func (g Game) getMinimalSet() Set {
 	set := Set{
-		red: 0,
+		red:   0,
 		green: 0,
-		blue: 0,
+		blue:  0,
 	}
 	for _, s := range g.sets {
 		if s.red > set.red {

@@ -4,23 +4,23 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"slices"
 	"strconv"
 	"strings"
-	"slices"
 )
 
 func parseNumbers(s string) []int {
-		numbers := make([]int, 0, 30)
-		scanner := bufio.NewScanner(strings.NewReader(s))
-		scanner.Split(bufio.ScanWords)
-		for scanner.Scan() {
-			number, err := strconv.Atoi(scanner.Text())
-			if err != nil {
-				panic(err)
-			}
-			numbers = append(numbers, number)
+	numbers := make([]int, 0, 30)
+	scanner := bufio.NewScanner(strings.NewReader(s))
+	scanner.Split(bufio.ScanWords)
+	for scanner.Scan() {
+		number, err := strconv.Atoi(scanner.Text())
+		if err != nil {
+			panic(err)
 		}
-		return numbers
+		numbers = append(numbers, number)
+	}
+	return numbers
 }
 
 func countNumbers(w []int, y []int) int {

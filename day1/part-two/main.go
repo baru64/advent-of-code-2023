@@ -22,7 +22,7 @@ func findFirstDigit(s string, dict map[string]byte) byte {
 }
 
 func findLastDigit(s string, dict map[string]byte) byte {
-	for i := len(s)-1; i >= 0; i-- {
+	for i := len(s) - 1; i >= 0; i-- {
 		if s[i] >= '0' && s[i] <= '9' {
 			return s[i]
 		}
@@ -35,18 +35,17 @@ func findLastDigit(s string, dict map[string]byte) byte {
 	panic("digit not found")
 }
 
-
 func main() {
 	digitDict := map[string]byte{
-		"one": byte('1'),
-		"two": byte('2'),
+		"one":   byte('1'),
+		"two":   byte('2'),
 		"three": byte('3'),
-		"four": byte('4'),
-		"five": byte('5'),
-		"six": byte('6'),
+		"four":  byte('4'),
+		"five":  byte('5'),
+		"six":   byte('6'),
 		"seven": byte('7'),
 		"eight": byte('8'),
-		"nine": byte('9'),
+		"nine":  byte('9'),
 	}
 
 	var filename = "testinput"
