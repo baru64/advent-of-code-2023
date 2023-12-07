@@ -28,7 +28,7 @@ func main() {
 	result := 0
 	var timeBuilder strings.Builder
 	var distanceBuilder strings.Builder
-	// parse 
+	// parse
 	fs.Scan()
 	line := fs.Text()
 	timesFields := strings.Fields(line[strings.IndexByte(line, ':')+1:])
