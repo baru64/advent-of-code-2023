@@ -2,18 +2,18 @@ package main
 
 import (
 	"bufio"
+	"cmp"
 	"fmt"
 	"os"
 	"slices"
 	"strconv"
 	"strings"
-	"cmp"
 )
 
 type Hand struct {
 	cards [5]uint8
-	bid uint64
-	typ int
+	bid   uint64
+	typ   int
 }
 
 func getKeys(m map[uint8]int) []uint8 {
@@ -93,7 +93,7 @@ func compareHands(a Hand, b Hand) int {
 	if c != 0 {
 		return c
 	}
-	for i := 0; i < 5;  i++ {
+	for i := 0; i < 5; i++ {
 		c = cmp.Compare(a.cards[i], b.cards[i])
 		if c != 0 {
 			return c

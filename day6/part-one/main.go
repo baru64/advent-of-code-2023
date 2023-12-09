@@ -28,7 +28,7 @@ func main() {
 	result := 1
 	times := make([]int, 0, 5)
 	distances := make([]int, 0, 5)
-	// parse 
+	// parse
 	fs.Scan()
 	line := fs.Text()
 	timesFields := strings.Fields(line[strings.IndexByte(line, ':')+1:])

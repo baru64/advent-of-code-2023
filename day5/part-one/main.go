@@ -22,7 +22,7 @@ type ConvertMap struct {
 func NewConvertMap() ConvertMap {
 	ranges := make([]ConvertRange, 30)
 	return ConvertMap{
-			ranges: ranges,
+		ranges: ranges,
 	}
 }
 
@@ -46,7 +46,7 @@ func (m *ConvertMap) addRange(s string) {
 func (m *ConvertMap) convert(n int) int {
 	for _, r := range m.ranges {
 		if n >= r.src && n < (r.src+r.len) {
-			return r.dst + (n-r.src)
+			return r.dst + (n - r.src)
 		}
 	}
 	return n
@@ -81,7 +81,7 @@ func main() {
 
 		if strings.Contains(line, "seeds") {
 			seedFields := strings.Fields(line[strings.IndexByte(line, ':')+1:])
-			for _, seed := range seedFields  {
+			for _, seed := range seedFields {
 				n, err := strconv.Atoi(seed)
 				if err != nil {
 					panic(err)
